@@ -3,8 +3,7 @@ import Landing from './Landing/Landing'
 import Register from './Register/Register'
 import Login from './Login/Login'
 import Chat from './Chat/Chat'
-import SideNav from './SideNav/SideNav'
-import './App.css'
+import './index.css'
 
 function App() {
 
