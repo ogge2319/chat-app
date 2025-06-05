@@ -10,10 +10,12 @@ function Landing() {
       </h1>
       <p>Chatta snabbt och säkert online</p>
       <div className="button-group">
-          <Link className="btn" to="/register">Register</Link>
-        
-          <Link className="btn" to="/login">Login</Link>
-          
+        <Link to="/register">
+          <button className="btn-register">Register</button>
+        </Link>
+        <Link to="/login">
+          <button className="btn-login">Login</button>
+        </Link>
       </div>
     </div>
   )
