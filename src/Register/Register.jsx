@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getCSRFToken, registerUser } from '../services/authService'
 import "../Register/register.css"
@@ -34,7 +33,7 @@ function Register() {
       const csrf = await getCSRFToken();
       await registerUser(formData, csrf)
       setSuccess("Registreringen lyckades! Du skickas till inloggning...")
-      setTimeout(() => navigate("/login", 1500))
+      setTimeout(() => navigate("/login"), 1500)
     } catch (err) {
       setError(err.message || "Något gick fel vid registrering.")
     }
