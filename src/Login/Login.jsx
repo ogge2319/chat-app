@@ -8,7 +8,7 @@ function Login() {
   const navigate = useNavigate();
 
   const [credentials, setCredentials] = useState({
-    email: "",
+    username: "",
     password: ""
   })
 
@@ -32,7 +32,7 @@ function Login() {
       setSuccess("Inloggningen lyckades! Du skickas vidare...")
       setTimeout(() => navigate("/chat"), 1500)
     } catch (error) {
-      setError(error.message || "Något gick fel vid registrering.")
+      setError(error.message || "Något gick fel vid inloggning.")
     }
   }
 
@@ -41,10 +41,10 @@ function Login() {
     <div className="login-wrapper">
       <h2>Logga in</h2>
       <form onSubmit={handleSubmit} className="login-form">
-        <input type="email"
-          name="email"
-          placeholder="Email"
-          value={credentials.email}
+        <input type="text"
+          name="username"
+          placeholder="Användarnamn"
+          value={credentials.username}
           onChange={handleChange}
           required
         />

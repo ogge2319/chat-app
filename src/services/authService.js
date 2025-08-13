@@ -11,39 +11,32 @@ export const getCSRFToken = async () => {
         throw error;
     }
 }
+
 export const registerUser = async (userData, csrfToken) => {
     try {
+        const payload = { ...userData, csrfToken };
         const response = await axios.post(
             `${API_BASE}/auth/register`,
-            userData,
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-Token": csrfToken
-                },
-                withCredentials: true
-            }
-        )
-        return response.data
+            payload
+        );
+        return response.data;
     } catch (error) {
         throw error.response?.data || error;
     }
-}
+};
+
 export const loginUser = async (credentials, csrfToken) => {
     try {
+        console.log("CSRF-token:", csrfToken);
+        console.log("Credentials:", credentials);
+        const payload = { ...credentials, csrfToken };
         const response = await axios.post(
             `${API_BASE}/auth/token`,
-            credentials,
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-Token": csrfToken
-                },
-                withCredentials: true
-            }
-        )
-        return response.data
+            payload,
+            { withCredentials: true }
+        );
+        return response.data;
     } catch (error) {
         throw error.response?.data || error;
     }
-}
+};
