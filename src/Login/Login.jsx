@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getCSRFToken, loginUser } from '../services/authService'
 import "../Login/login.css"
+import { jwtDecode } from 'jwt-decode'
 
 function Login() {
 
@@ -21,6 +22,7 @@ function Login() {
       [e.target.name]: e.target.value
     }))
   }
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -28,14 +30,22 @@ function Login() {
 
     try {
       const csrf = await getCSRFToken();
-      await loginUser(credentials, csrf)
+      const data = await loginUser(credentials, csrf)
+      const decoded = jwtDecode(data.token);
+
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify({
+        id: decoded.sub,
+        username: decoded.username,
+        avatar: decoded.avatar,
+      }))
+
       setSuccess("Inloggningen lyckades! Du skickas vidare...")
       setTimeout(() => navigate("/chat"), 1500)
     } catch (error) {
       setError(error.message || "Något gick fel vid inloggning.")
     }
   }
-
 
   return (
     <div className="login-wrapper">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getCSRFToken, registerUser } from '../services/authService'
-import "../Register/register.css"
+import "./register.css"
 
 function Register() {
 
