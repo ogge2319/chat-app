@@ -4,6 +4,7 @@ import Register from './Register/Register'
 import Login from './Login/Login'
 import Chat from './Chat/Chat'
 import './index.css'
+import PrivateRoute from "./utils/PrivateRoute"
 
 function App() {
 
@@ -11,10 +12,15 @@ function App() {
   return (
     <Router>
       <Routes>
-       <Route path="/" element={<Landing />} /> 
-        <Route path ="/register" element={<Register />} />
-        <Route path ="/login" element ={<Login />}/>
-        <Route path ="/chat" element ={<Chat />}/>
+        <Route path="/" element={<Landing />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/chat"
+          element={
+            <PrivateRoute><Chat /></PrivateRoute>
+          }
+        />
       </Routes>
     </Router>
   )
