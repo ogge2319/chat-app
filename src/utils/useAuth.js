@@ -1,8 +1,7 @@
 export function useAuth() {
-    const token = localStorage.getItem("token");
-    const user = JSON.parse(localStorage.getItem("user") || "null");
+  const token = localStorage.getItem('token');
+  const user = JSON.parse(localStorage.getItem('user') || 'null');
+  const isLoggedIn = !!token;
 
-    const isLoggedIn = !!token;
-
-    return {token, user, isLoggedIn };
+  return { token, user, isLoggedIn };
 }

@@ -1,6 +1,6 @@
-import React from 'react'
-import "../Landing/landing.css"
-import { Link } from 'react-router-dom'
+
+import { Link } from 'react-router-dom';
+import '../Landing/landing.css';
 
 function Landing() {
   return (
@@ -18,7 +18,7 @@ function Landing() {
         </Link>
       </div>
     </div>
-  )
+  );
 }
 
-export default Landing
+export default Landing;

@@ -1,23 +1,24 @@
-import React from 'react'
-import "../SideNav/sidenav.css"
-import { useAuth } from '../utils/useAuth'
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../utils/useAuth";
+import "./sidenav.css";
 
 function SideNav() {
+  const { isLoggedIn } = useAuth();
+  const navigate = useNavigate();
 
-  const { user, isLoggedIn } = useAuth();
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
+
+  if (!isLoggedIn) return null;
 
   return (
-     <>
-     {isLoggedIn && (
-     <div>
-      <p>Inloggad som: {user.usename} </p>
-      <img src="{user.avatar}" alt="avatar"/>
-     </div>
-     )}
-
-     </>
-
-  )
+    <div className="sidenav">
+      <button onClick={handleLogout}>Logga ut</button>
+    </div>
+  );
 }
 
-export default SideNav
+export default SideNav;
