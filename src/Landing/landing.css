@@ -22,7 +22,7 @@ h1 .chat {
 
 
 p {
-    color: var(--color-subtext);
+    color: var(--color-primary);
     font-size: 1.2rem;
     margin-bottom: 2rem;
 }

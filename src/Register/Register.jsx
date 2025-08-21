@@ -10,7 +10,7 @@ function Register() {
     username: '',
     email: '',
     password: '',
-    avatar: ''
+    avatar: '',
   });
 
   const [error, setError] = useState('');

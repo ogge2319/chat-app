@@ -4,7 +4,7 @@ const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 export const getCSRFToken = async () => {
   try {
-    const response = await axios.patch(`${API_BASE}/csrf`, {}, { withCredentials: true });
+    const response = await axios.patch(`${API_BASE}/csrf`, {});
     return response.data.csrfToken;
   } catch (error) {
     throw error.response?.data || error;
