@@ -1,55 +1,92 @@
-
 .chat-wrapper {
-  max-width: 600px;
-  margin: auto;
-  padding: 2rem;
-  color: white;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  background: inherit;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+    margin-left: 220px; /* samma bredd som din sidenav */
+  padding-right: 20px; /* lite luft på höger sida */
 }
 
+.user-info {
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .user-info img {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .messages {
+  overflow-y: auto;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: 10px;
 }
 
+
 .message {
-  padding: 0.5rem 1rem;
+  max-width: 75%;
+  padding: 10px 14px;
   border-radius: 10px;
-  max-width: 70%;
   word-wrap: break-word;
 }
 
-.mine {
-  background-color: #daf5ff;
+
+.message.mine {
   align-self: flex-end;
-  text-align: right;
-  color: black;
+  background: #2686FF;
+  color: #000;
+  border-bottom-right-radius: 4px;
 }
 
-.theirs {
-  background-color: #f0f0f0;
+
+.message.theirs {
   align-self: flex-start;
-  text-align: left;
-  color: black;
+  background: #2a2f3a;
+  color: #fff;
+  border-bottom-left-radius: 4px;
 }
+
+.message button {
+  margin-top: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: none;
+  background: #ff4d4d;
+  color: #fff;
+  cursor: pointer;
+}
+
 
 .message-form {
   display: flex;
-  gap: 0.5rem;
+  justify-content: center; 
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-.message-form input {
-  flex: 1;
-  padding: 0.5rem;
+.message-form input[type="text"] {
+  width: 60%;            
+  max-width: 600px;      
+  padding: 8px 12px;
 }
 
 .message-form button {
-  padding: 0.5rem 1rem;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: none;
+  background: #6aa5ff;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
 }
